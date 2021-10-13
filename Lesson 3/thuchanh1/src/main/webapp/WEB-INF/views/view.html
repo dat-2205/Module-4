@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+</head>
+<body>
+<div style="position: relative; width: 500px;top: 200px; left: 40%; background-color: coral">
+    <p><label>ID</label><p th:text="${customer.getId()}"></p></p>
+    <p><label>Name</label><p th:text="${customer.getName()}"></p></p>
+    <p><label>Email</label><p th:text="${customer.getEmail()}"></p></p>
+    <p><label>Address</label><p th:text="${customer.getAddress()}"></p></p>
+    <a href="/">Okay! Back to list</a>
+</div>
+<footer th:replace="/index :: footer"></footer>
+</body>
+</html>
