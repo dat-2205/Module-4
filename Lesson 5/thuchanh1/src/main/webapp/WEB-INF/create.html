@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/}">Back home</a>
+</div>
+<div th:if="${message != null}">
+    <h2 th:text="${message}"></h2>
+</div>
+<form th:action="@{/create}" method="post" enctype="multipart/form-data" th:object="${musicForm}">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td><label>Name : </label></td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td><label>Singer : </label></td>
+            <td><input type="text" th:field="*{singer}"></td>
+        </tr>
+        <tr>
+            <td><label>Category : </label></td>
+            <td>
+                <select th:field="*{category}" >
+                    <option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>File : </label></td>
+            <td><input type="file" th:field="${musicForm.file}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>
+<footer th:replace="/index :: footer"></footer>
+</body>
+</html>
