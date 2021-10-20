@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+</head>
+<body><table id="customers">
+    <tr>
+        <th><h4 th:text="${blog.title}"></h4></th>
+    </tr>
+    <tr>
+        <td th:text="${blog.author}"></td>
+    </tr>
+    <tr>
+        <td th:text="${blog.category.getName()}"></td>
+    </tr>
+    <tr style="border: 1px solid black">
+        <td>
+            <p th:text="${blog.content}"></p>
+        </td>
+    </tr>
+    <tr th:each="image : ${images}">
+        <td><img th:src="@{'/File/' + ${image.file}}"></td>
+    </tr>
+</table>
+</body>
+</html>

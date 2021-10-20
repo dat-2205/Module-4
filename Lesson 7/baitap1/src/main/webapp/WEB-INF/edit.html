@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+</head>
+<body>
+<div>
+    <a th:href="@{/}">Back home</a>
+</div>
+<form th:action="@{/create}" method="post" enctype="multipart/form-data" th:object="${blogForm}">
+    <table>
+        <tr>
+            <td><input type="text" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td><label>Title </label></td>
+            <td><input type="text" th:field="*{title}"></td>
+        </tr>
+        <tr>
+            <td><label>Author </label></td>
+            <td><input type="text" th:field="*{author}"></td>
+        </tr>
+        <tr>
+            <td><label>Category </label></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td><label>Image </label></td>
+            <td><input type="file" th:field="*{image}" multiple></td>
+        </tr>
+        <tr>
+            <td><label>Content </label></td>
+            <td><textarea th:field="*{content}" cols="30" rows="20"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="submit" th:value="Save"></td>
+        </tr>
+    </table>
+</form>
+<footer th:replace="/index :: footer"></footer>
+</body>
+</html>
