@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+</head>
+<body>
+<h3>Product Manager</h3>
+<div>
+    <a href="/">Back to home</a>
+</div>
+    <table>
+        <tr>
+            <td>ID : </td>
+            <td><p th:text="${product.id}"></p></td>
+        </tr>
+        <tr>
+            <td>Name : </td>
+            <td><p th:text="${product.name}"></p></td>
+        </tr>
+        <tr>
+            <td>Price : </td>
+            <td><p th:text="${product.price}"></p></td>
+
+        </tr>
+        <tr>
+            <td>Description : </td>
+            <td><p th:text="${product.description}"></p>/td>
+        </tr>
+        <tr>
+            <td>Image : </td>
+            <td><img th:src="@{'/D:/CodeGym/Module4/File/' + ${product.image}}" alt=""></td>
+        </tr>
+        <tr>
+            <td>Category : </td>
+            <td><p th:text="${product.category.id}"></p></td>
+        </tr>
+    </table>
+<footer th:replace="/index :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/index :: head">
+</head>
+<body>
+<h3>Product Manager</h3>
+<div>
+    <a href="/">Back to home</a>
+</div>
+<form id="form" th:action="@{/save}" method="post" enctype="multipart/form-data" th:object="${productForm}">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Name : </td>
+            <td>
+                <input type="text" th:field="*{name}">
+            </td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Price : </td>
+            <td><input type="number" th:field="*{price}" step="any"></td>
+
+        </tr>
+        <tr>
+            <td>Description : </td>
+            <td><input type="text" th:field="*{description}"></td>
+        </tr>
+        <tr>
+            <td>Image : </td>
+            <td><input type="file" th:field="*{image}"></td>
+        </tr>
+        <tr>
+            <td>Category : </td>
+            <td>
+                <select th:field="*{category.id}">
+                    <option th:each=" c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save Product"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+<footer th:replace="/index :: footer"></footer>
+</body>
+</html>
